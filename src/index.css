@@ -1,0 +1,7 @@
+.step[aria-hidden="true"] {
+  display: none;
+}
+
+.stepper {
+    list-style-type: none;
+}
