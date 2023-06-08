@@ -1,5 +1,9 @@
 import { Stepper, Step } from "../components/Stepper";
 import { Button } from "../components/Tools";
+import PersonalInfo from "../components/Steps/PersonalInfo";
+import Plan from "../components/Steps/Plan";
+import Addons from "../components/Steps/Addons";
+import Summary from "../components/Steps/Summary";
 
 function Main({ step, setStep }) {
   return (
@@ -29,35 +33,3 @@ function Main({ step, setStep }) {
 }
 
 export default Main;
-
-function PersonalInfo() {
-  return (
-    <section>
-      <h1>Personal Info</h1>
-    </section>
-  );
-}
-
-function Plan() {
-  return (
-    <section>
-      <h1>Plan</h1>
-    </section>
-  );
-}
-
-function Addons() {
-  return (
-    <section>
-      <h1>Addons</h1>
-    </section>
-  );
-}
-
-function Summary() {
-  return (
-    <section>
-      <h1>Summary</h1>
-    </section>
-  );
-}
