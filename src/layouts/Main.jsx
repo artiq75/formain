@@ -14,7 +14,7 @@ function Main({ step, setStep }) {
           <div role="footer" className="footer">
             <div className="footer-inner">
               <Button className="primary" onClick={() => setStep(step + 1)}>
-                Next
+                Next Step
               </Button>
             </div>
           </div>
@@ -27,7 +27,7 @@ function Main({ step, setStep }) {
                 Back
               </Button>
               <Button className="primary" onClick={() => setStep(step + 1)}>
-                Next
+                Next Step
               </Button>
             </div>
           </div>
@@ -40,7 +40,7 @@ function Main({ step, setStep }) {
                 Back
               </Button>
               <Button className="primary" onClick={() => setStep(step + 1)}>
-                Next
+                Next Step
               </Button>
             </div>
           </div>

@@ -6,10 +6,10 @@ export function Button({ children, ...props }) {
 
 export function TextField({ type = "text", label, name, ...props }) {
   return (
-    <>
+    <p>
       <label htmlFor={name}>{label}</label>
       <input type={type} id={name} name={name} {...props} />
-    </>
+    </p>
   );
 }
 

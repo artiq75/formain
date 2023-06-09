@@ -47,9 +47,22 @@ body {
   font-family: "Ubuntu", sans-serif;
   font-size: 16px;
   font-weight: 400;
+  line-height: 1.5;
   background-color: var(--magnolia);
   color: var(--marine-blue);
   overflow-x: hidden;
+}
+
+label {
+  display: inline-block;
+  margin-bottom: 0.5em;
+}
+
+input {
+  width: 100%;
+  padding: 1em;
+  border: 1px solid var(--light-gray);
+  border-radius: var(--rounded-sm);
 }
 
 button {
@@ -106,7 +119,7 @@ button.outlined:hover {
 
 .aside {
   padding: 2em 1em;
-  min-height: 160px;
+  min-height: 175px;
   background-image: url("assets/images/bg-sidebar-mobile.svg");
   background-repeat: no-repeat;
   background-size: cover;
@@ -145,6 +158,21 @@ button.outlined:hover {
   justify-content: space-between;
 }
 
+.personal-info-header {
+  display: grid;
+  gap: 1em;
+  margin-bottom: 1.5em;
+}
+
+.personal-info-header p {
+  color: var(--cool-gray);
+}
+
+.personal-info-form {
+  display: grid;
+  gap: 1em;
+}
+
 @media (max-width: 801px) {
   #root {
     padding: 0 1em;
@@ -154,20 +182,19 @@ button.outlined:hover {
     position: relative;
     max-width: var(--mobile);
     background-color: var(--white);
-    margin-top: -70px;
+    margin-top: -80px;
     margin-left: auto;
     margin-right: auto;
     padding: 1.5em;
     border-radius: var(--rounded);
     box-shadow: rgba(0, 0, 0, 0.05) 0px 15px 15px -3px,
       rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
-    min-height: 450px;
   }
 
   .aside {
     position: relative;
-    margin-left: -33.33%;
-    margin-right: -33.33%;
+    margin-left: -5.5%;
+    margin-right: -5.5%;
   }
 
   .aside .stepper {
@@ -179,25 +206,25 @@ button.outlined:hover {
   .aside-step-text {
     display: none;
   }
+}
 
-  .footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 1em;
-    background-color: var(--white);
-  }
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1em;
+  background-color: var(--white);
+}
 
-  .footer-inner {
-    max-width: var(--mobile);
-    margin-left: auto;
-    margin-right: auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-  }
+.footer-inner {
+  max-width: var(--mobile);
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
 }
 
 @media (min-width: 800px) {
@@ -222,6 +249,27 @@ button.outlined:hover {
 
   .main {
     padding: 2.5em 3em;
+    position: relative;
+  }
+
+  .footer {
+    position: absolute;
+    bottom: 0;
+    margin-left: 5em;
+    margin-right: 5em;
+  }
+
+  .footer-inner {
+    margin: 0;
+    min-width: 100%;
+  }
+
+  .personal-info-header {
+    margin-bottom: 2.5em;
+  }
+
+  .personal-info-form {
+    gap: 1.25em;
   }
 
   .aside {
