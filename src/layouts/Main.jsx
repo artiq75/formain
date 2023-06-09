@@ -7,28 +7,57 @@ import Summary from "../components/Steps/Summary";
 
 function Main({ step, setStep }) {
   return (
-    <>
+    <main className="main">
       <Stepper step={step}>
         <Step>
           <PersonalInfo />
-          <Button onClick={() => setStep(step + 1)}>Next</Button>
+          <div role="footer" className="footer">
+            <div className="footer-inner">
+              <Button className="primary" onClick={() => setStep(step + 1)}>
+                Next
+              </Button>
+            </div>
+          </div>
         </Step>
         <Step>
           <Plan />
-          <Button onClick={() => setStep(step + 1)}>Next</Button>
-          <Button onClick={() => setStep(step - 1)}>Back</Button>
+          <div role="footer" className="footer">
+            <div className="footer-inner">
+              <Button className="outlined" onClick={() => setStep(step - 1)}>
+                Back
+              </Button>
+              <Button className="primary" onClick={() => setStep(step + 1)}>
+                Next
+              </Button>
+            </div>
+          </div>
         </Step>
         <Step>
           <Addons />
-          <Button onClick={() => setStep(step + 1)}>Next</Button>
-          <Button onClick={() => setStep(step - 1)}>Back</Button>
+          <div role="footer" className="footer">
+            <div className="footer-inner">
+              <Button className="outlined" onClick={() => setStep(step - 1)}>
+                Back
+              </Button>
+              <Button className="primary" onClick={() => setStep(step + 1)}>
+                Next
+              </Button>
+            </div>
+          </div>
         </Step>
         <Step>
           <Summary />
-          <Button onClick={() => setStep(step - 1)}>Back</Button>
+          <div role="footer" className="footer">
+            <div className="footer-inner">
+              <Button className="outlined" onClick={() => setStep(step - 1)}>
+                Back
+              </Button>
+              <Button className="secondary">Confirm</Button>
+            </div>
+          </div>
         </Step>
       </Stepper>
-    </>
+    </main>
   );
 }
 

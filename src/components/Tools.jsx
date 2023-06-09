@@ -27,8 +27,8 @@ export function Invoice({ lines }) {
   return (
     <table className="invoice">
       <tbody>
-        {lines.map((line) => (
-          <tr>
+        {lines.map((line, i) => (
+          <tr key={i}>
             <td>{line.description}</td>
             <td>{line.price}</td>
           </tr>
