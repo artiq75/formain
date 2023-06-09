@@ -3,7 +3,7 @@ import { Tile } from "../Tools";
 function Plan() {
   return (
     <section>
-      <h1>Plan</h1>
+      <h1>Select your plan</h1>
       <p>You have the option of monthly or yearly billing.</p>
       <Tile icon="" title="Arcade" price={9} />
       <Tile icon="" title="Advanced" price={12} />

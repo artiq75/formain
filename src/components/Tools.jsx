@@ -22,3 +22,18 @@ export function Tile() {
     </div>
   );
 }
+
+export function Invoice({ lines }) {
+  return (
+    <table className="invoice">
+      <tbody>
+        {lines.map((line) => (
+          <tr>
+            <td>{line.description}</td>
+            <td>{line.price}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  );
+}
