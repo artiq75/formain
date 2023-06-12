@@ -102,8 +102,43 @@ button.outlined:hover {
   color: var(--marine-blue);
 }
 
+.tile {
+  border: 1px solid var(--light-gray);
+  border-radius: var(--rounded);
+  padding: 1em;
+  min-width: 150px;
+  font-size: 0.9em;
+}
+
+.tile:has(input:checked) {
+  border-color: var(--purplish-blue);
+  background-color: var(--magnolia);
+}
+
+.tile-icon {
+  width: min-content;
+  height: min-content;
+}
+
+.tile label {
+  margin: 0;
+  display: flex;
+  gap: 1em;
+}
+
+.tile-price {
+  color: var(--cool-gray);
+}
+
+.tile input {
+  position: absolute;
+  left: -999999px;
+  visibility: hidden;
+  opacity: 0;
+}
+
 .main .step {
-  transition: .3s;
+  transition: 0.3s;
 }
 
 .main .step[aria-hidden="true"] {
@@ -180,6 +215,12 @@ button.outlined:hover {
   gap: 1em;
 }
 
+.plan form {
+  display: grid;
+  align-items: center;
+  gap: 1em;
+}
+
 @media (max-width: 801px) {
   #root {
     padding: 0 1em;
@@ -212,6 +253,10 @@ button.outlined:hover {
 
   .aside-step-text {
     display: none;
+  }
+
+  .tile label {
+    align-items: center;
   }
 }
 
@@ -246,6 +291,7 @@ button.outlined:hover {
     padding: 1em;
     width: 100%;
     display: grid;
+    gap: 1em;
     grid-template-columns: 300px 1fr;
     background-color: var(--white);
     border-radius: var(--rounded-lg);
@@ -305,6 +351,17 @@ button.outlined:hover {
     font-weight: 500;
     color: var(--light-gray);
     margin-bottom: 0.25em;
+  }
+}
+
+@media (min-width: 850px) {
+  .plan form {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+
+  .tile label {
+    flex-direction: column;
+    gap: 2.25em;
   }
 }
 
