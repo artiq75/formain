@@ -33,3 +33,13 @@ export function Switch({ name, ...props }) {
     </label>
   );
 }
+
+export function Toggle({ firstLabel, secondLabel, isToggle, onToggle }) {
+  return (
+    <div className={`toggle${isToggle ? " active" : ""}`}>
+      <span className="toggle-label">{firstLabel}</span>
+      <Switch onChange={onToggle} />
+      <span className="toggle-label">{secondLabel}</span>
+    </div>
+  );
+}

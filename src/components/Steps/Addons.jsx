@@ -3,8 +3,10 @@ import { HorizontalCheckbox } from "../Tile";
 function Addons() {
   return (
     <section>
-      <h1>Pick add-ons</h1>
-      <p>Add-ons help enhance your gaming experience.</p>
+      <div className="addons-header">
+        <h1>Pick add-ons</h1>
+        <p>Add-ons help enhance your gaming experience.</p>
+      </div>
       <HorizontalCheckbox
         title="Online service"
         description="Access to multiplayer games"

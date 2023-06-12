@@ -18,8 +18,10 @@ const invoiceLines = [
 function Summary() {
   return (
     <section>
-      <h1>Finishing up</h1>
-      <p>Double-check everything looks OK before confirming.</p>
+      <div className="summary-header">
+        <h1>Finishing up</h1>
+        <p>Double-check everything looks OK before confirming.</p>
+      </div>
       <Invoice lines={invoiceLines} />
     </section>
   );

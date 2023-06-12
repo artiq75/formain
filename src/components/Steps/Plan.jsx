@@ -1,18 +1,20 @@
 import { useState } from "react";
 import { Tile } from "../Tile";
-import { Switch } from "../Tools";
+import { Toggle } from "../Tools";
 
 function Plan() {
   const [isYearly, setIsYearly] = useState(false);
 
-  const handleChange = (e) => {
+  const handleToggle = (e) => {
     setIsYearly(e.target.checked);
   };
 
   return (
     <section className="plan">
-      <h1>Select your plan</h1>
-      <p>You have the option of monthly or yearly billing.</p>
+      <div className="plan-header">
+        <h1 className="plan-title">Select your plan</h1>
+        <p className="plan-description">You have the option of monthly or yearly billing.</p>
+      </div>
       <form>
         <Tile
           name="plan"
@@ -36,7 +38,12 @@ function Plan() {
           isYearly={isYearly}
         />
       </form>
-      <Switch onChange={handleChange} />
+      <Toggle
+        firstLabel="Monthly"
+        secondLabel="Yearly"
+        isToggle={isYearly}
+        onToggle={handleToggle}
+      />
     </section>
   );
 }
