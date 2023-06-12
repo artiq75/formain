@@ -23,6 +23,16 @@ export function Tile() {
   );
 }
 
+export function HorizontalTile() {
+  const id = useMemo(() => crypto.randomUUID(), []);
+  return (
+    <div className="horizont-tile">
+      <label htmlFor={id}></label>
+      <input type="checkbox" id={id} name={id} />
+    </div>
+  );
+}
+
 export function Invoice({ lines }) {
   return (
     <table className="invoice">
