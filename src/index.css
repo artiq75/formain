@@ -141,7 +141,8 @@ button.outlined:hover {
   transition: 0.3s;
 }
 
-.main .step[aria-hidden="true"] {
+.main .step[aria-hidden="true"],
+.main .step[aria-hidden="true"] .footer {
   position: fixed;
   left: -99999px;
   visibility: inherit;
@@ -267,6 +268,7 @@ section p {
 }
 
 .footer {
+  z-index: 999;
   position: fixed;
   bottom: 0;
   left: 0;

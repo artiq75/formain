@@ -4,8 +4,17 @@ import PersonalInfo from "../components/Steps/PersonalInfo";
 import Plan from "../components/Steps/Plan";
 import Addons from "../components/Steps/Addons";
 import Summary from "../components/Steps/Summary";
+import { useCallback } from "react";
 
 function Main({ step, setStep }) {
+  const handleNext = useCallback(() => {
+    setStep((step) => step + 1);
+  }, [setStep]);
+
+  const handleBack = useCallback(() => {
+    setStep((step) => step - 1);
+  }, [setStep]);
+
   return (
     <main className="main">
       <Stepper step={step}>
@@ -13,7 +22,7 @@ function Main({ step, setStep }) {
           <PersonalInfo />
           <div role="footer" className="footer">
             <div className="footer-inner">
-              <Button className="primary" onClick={() => setStep(step + 1)}>
+              <Button className="primary" onClick={handleNext}>
                 Next Step
               </Button>
             </div>
@@ -23,10 +32,10 @@ function Main({ step, setStep }) {
           <Plan />
           <div role="footer" className="footer">
             <div className="footer-inner">
-              <Button className="outlined" onClick={() => setStep(step - 1)}>
+              <Button className="outlined" onClick={handleBack}>
                 Back
               </Button>
-              <Button className="primary" onClick={() => setStep(step + 1)}>
+              <Button className="primary" onClick={handleNext}>
                 Next Step
               </Button>
             </div>
@@ -36,10 +45,10 @@ function Main({ step, setStep }) {
           <Addons />
           <div role="footer" className="footer">
             <div className="footer-inner">
-              <Button className="outlined" onClick={() => setStep(step - 1)}>
+              <Button className="outlined" onClick={handleBack}>
                 Back
               </Button>
-              <Button className="primary" onClick={() => setStep(step + 1)}>
+              <Button className="primary" onClick={handleNext}>
                 Next Step
               </Button>
             </div>
@@ -49,7 +58,7 @@ function Main({ step, setStep }) {
           <Summary />
           <div role="footer" className="footer">
             <div className="footer-inner">
-              <Button className="outlined" onClick={() => setStep(step - 1)}>
+              <Button className="outlined" onClick={handleBack}>
                 Back
               </Button>
               <Button className="secondary">Confirm</Button>
