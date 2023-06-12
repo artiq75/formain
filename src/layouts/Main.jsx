@@ -4,9 +4,15 @@ import PersonalInfo from "../components/Steps/PersonalInfo";
 import Plan from "../components/Steps/Plan";
 import Addons from "../components/Steps/Addons";
 import Summary from "../components/Steps/Summary";
-import { useCallback } from "react";
+import { useCallback, useState } from "react";
 
 function Main({ step, setStep }) {
+  const [isYearly, setIsYearly] = useState(false);
+
+  const handleToggle = (e) => {
+    setIsYearly(e.target.checked);
+  };
+
   const handleNext = useCallback(() => {
     setStep((step) => step + 1);
   }, [setStep]);
@@ -29,11 +35,11 @@ function Main({ step, setStep }) {
           </div>
         </Step>
         <Step>
-          <Plan />
+          <Plan isYearly={isYearly} onToggle={handleToggle} />
           <div role="footer" className="footer">
             <div className="footer-inner">
               <Button className="outlined" onClick={handleBack}>
-                Back
+                Go Back
               </Button>
               <Button className="primary" onClick={handleNext}>
                 Next Step
@@ -42,11 +48,11 @@ function Main({ step, setStep }) {
           </div>
         </Step>
         <Step>
-          <Addons />
+          <Addons isYearly={isYearly} />
           <div role="footer" className="footer">
             <div className="footer-inner">
               <Button className="outlined" onClick={handleBack}>
-                Back
+                Go Back
               </Button>
               <Button className="primary" onClick={handleNext}>
                 Next Step
@@ -59,7 +65,7 @@ function Main({ step, setStep }) {
           <div role="footer" className="footer">
             <div className="footer-inner">
               <Button className="outlined" onClick={handleBack}>
-                Back
+                Go Back
               </Button>
               <Button className="secondary">Confirm</Button>
             </div>

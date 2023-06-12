@@ -2,18 +2,14 @@ import { useState } from "react";
 import { Tile } from "../Tile";
 import { Toggle } from "../Tools";
 
-function Plan() {
-  const [isYearly, setIsYearly] = useState(false);
-
-  const handleToggle = (e) => {
-    setIsYearly(e.target.checked);
-  };
-
+function Plan({ isYearly, onToggle }) {
   return (
     <section className="plan">
       <div className="plan-header">
         <h1 className="plan-title">Select your plan</h1>
-        <p className="plan-description">You have the option of monthly or yearly billing.</p>
+        <p className="plan-description">
+          You have the option of monthly or yearly billing.
+        </p>
       </div>
       <form>
         <Tile
@@ -42,7 +38,7 @@ function Plan() {
         firstLabel="Monthly"
         secondLabel="Yearly"
         isToggle={isYearly}
-        onToggle={handleToggle}
+        onToggle={onToggle}
       />
     </section>
   );

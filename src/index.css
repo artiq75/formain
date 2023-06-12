@@ -56,6 +56,7 @@ body {
 label {
   display: inline-block;
   margin-bottom: 0.5em;
+  color: var(--marine-blue);
 }
 
 input {
@@ -110,6 +111,12 @@ button.outlined:hover {
   font-size: 0.9em;
 }
 
+.tile label {
+  margin: 0;
+  display: flex;
+  gap: 1em;
+}
+
 .tile:has(input:checked) {
   border-color: var(--purplish-blue);
   background-color: var(--magnolia);
@@ -118,12 +125,6 @@ button.outlined:hover {
 .tile-icon {
   width: min-content;
   height: min-content;
-}
-
-.tile label {
-  margin: 0;
-  display: flex;
-  gap: 1em;
 }
 
 .tile-price {
@@ -137,12 +138,16 @@ button.outlined:hover {
   opacity: 0;
 }
 
+.tile-bonus {
+  color: var(--marine-blue);
+}
+
 .main .step {
   transition: 0.3s;
 }
 
-.main .step[aria-hidden="true"],
-.main .step[aria-hidden="true"] .footer {
+.main .step[aria-current="true"],
+.main .step[aria-current="true"] .footer {
   position: fixed;
   left: -99999px;
   visibility: inherit;
@@ -183,7 +188,7 @@ button.outlined:hover {
   transition: 0.3s;
 }
 
-.step:not([aria-hidden="true"]) .aside-step-number {
+.step:not([aria-current="true"]) .aside-step-number {
   background-color: var(--light-blue);
   color: var(--marine-blue);
 }
@@ -222,10 +227,43 @@ section p {
   gap: 1.5em;
 }
 
+.personal-info-header,
+.plan-header,
+.addons-header,
+.summary-header {
+  display: grid;
+  gap: 0.5em;
+}
+
 .plan form {
   display: grid;
   align-items: center;
   gap: 1em;
+}
+
+.addons-list {
+  display: grid;
+  gap: 1em;
+}
+
+.footer {
+  z-index: 999;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1em;
+  background-color: var(--white);
+}
+
+.footer-inner {
+  max-width: var(--mobile);
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
 }
 
 @media (max-width: 801px) {
@@ -265,26 +303,6 @@ section p {
   .tile label {
     align-items: center;
   }
-}
-
-.footer {
-  z-index: 999;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 1em;
-  background-color: var(--white);
-}
-
-.footer-inner {
-  max-width: var(--mobile);
-  margin-left: auto;
-  margin-right: auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
 }
 
 @media (min-width: 800px) {
@@ -361,12 +379,12 @@ section p {
     font-size: 2em;
   }
 
-  .personal-info-header,
-  .plan-header,
-  .addons-header,
-  .summary-header {
+  .personal-info,
+  .plan,
+  .addons,
+  .summary {
     display: grid;
-    gap: 0.75em;
+    gap: 2.25em;
   }
 }
 
@@ -440,6 +458,42 @@ section p {
   color: var(--marine-blue);
 }
 
+.toggle:not(.active) .toggle-label:first-child {
+  color: var(--cool-gray);
+}
+
 .toggle.active .toggle-label:last-child {
   color: var(--cool-gray);
+}
+
+.horizontal-checkbox {
+  border: 1px solid var(--light-gray);
+  border-radius: var(--rounded);
+  padding: 1em;
+}
+
+.horizontal-checkbox:has(input:checked) {
+  border-color: var(--marine-blue);
+  background-color: var(--magnolia);
+}
+
+.horizontal-checkbox label {
+  display: flex;
+  align-items: center;
+  gap: 2em;
+  font-size: 0.8em;
+}
+
+.horizontal-checkbox-price {
+  margin-left: auto;
+  color: var(--purplish-blue);
+}
+
+.horizontal-checkbox-description {
+  color: var(--cool-gray);
+}
+
+.horizontal-checkbox input {
+  height: min-content;
+  width: min-content;
 }

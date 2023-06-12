@@ -13,7 +13,7 @@ export function Tile({ name, icon, title, price, isYearly = false }) {
         <div>
           <h3 className="tile-title">{title}</h3>
           <p className="tile-price">
-            ${price}/{!isYearly ? "mo" : "yr"}
+            ${!isYearly ? price : price * 10}/{!isYearly ? "mo" : "yr"}
           </p>
           {isYearly && (
             <p className="tile-bonus">
@@ -23,15 +23,6 @@ export function Tile({ name, icon, title, price, isYearly = false }) {
         </div>
       </label>
       <input type="radio" id={id} name={name} />
-    </div>
-  );
-}
-
-export function HorizontalCheckbox({ name }) {
-  return (
-    <div className="horizont-checkbox">
-      <label htmlFor={name}></label>
-      <input type="checkbox" id={name} name={name} />
     </div>
   );
 }
