@@ -1,5 +1,3 @@
-import { useMemo } from "react";
-
 export function Button({ children, ...props }) {
   return <button {...props}>{children}</button>;
 }
@@ -25,5 +23,13 @@ export function Invoice({ lines }) {
         ))}
       </tbody>
     </table>
+  );
+}
+
+export function Switch({ name, ...props }) {
+  return (
+    <label className="switch" htmlFor={name}>
+      <input type="checkbox" id={name} name={name} {...props} />
+    </label>
   );
 }
