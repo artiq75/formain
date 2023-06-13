@@ -46,28 +46,34 @@
   text-align: right;
 }
 
-.invoice tbody tr:not(:last-child) td {
-  padding-bottom: .75em!important;
+.invoice :is(tbody, tfoot) td {
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+}
+
+.invoice :is(tbody tr:not(:last-child), tfoot) td {
+  padding-top: 1em;
 }
 
 .invoice tbody tr:first-of-type td {
-  padding: 1.5em 1.5em 0 1.5em;
+  padding-top: 1.5em;
 }
 
 .invoice tbody tr:last-of-type td {
-  padding: 0 1.5em 1.5em 1.5em;
+  padding-top: 1em;
+  padding-bottom: 1.5em;
+}
+
+.invoice tbody tr:last-of-type td:first-of-type {
+  border-bottom-left-radius: var(--rounded);
+}
+
+.invoice tbody tr:last-of-type td:last-of-type {
+  border-bottom-right-radius: var(--rounded);
 }
 
 .invoice-total {
   color: var(--purplish-blue);
   font-weight: 700;
   font-size: 1.25em;
-}
-
-.invoice tbody tr:not(:last-of-type) td {
-  margin-bottom: 1em;
-}
-
-.invoice tfoot td {
-  padding: 1em;
 }

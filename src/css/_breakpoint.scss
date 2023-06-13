@@ -32,7 +32,7 @@
     display: none;
   }
 
-  .tile label {
+  .tile {
     align-items: center;
   }
 }
@@ -125,7 +125,7 @@
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   }
 
-  .tile label {
+  .tile {
     flex-direction: column;
     gap: 3em;
   }

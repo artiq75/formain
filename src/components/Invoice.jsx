@@ -5,6 +5,11 @@ function Invoice({ lines, isYearly }) {
     return lines.reduce((acc, line) => acc + line.price, 0);
   }, [lines]);
 
+  const filterdLines = useMemo(
+    () => lines.filter((line, index) => index >= 1),
+    [lines]
+  );
+
   return (
     <table className="invoice">
       <thead>
@@ -19,18 +24,14 @@ function Invoice({ lines, isYearly }) {
         </tr>
       </thead>
       <tbody>
-        {lines.map((line, i) => (
-          <>
-            {i >= 1 && (
-              <tr>
-                <td>{line.description}</td>
-                <td>
-                  +${!isYearly ? line.price : line.price * 10}/
-                  {!isYearly ? "mo" : "yr"}
-                </td>
-              </tr>
-            )}
-          </>
+        {filterdLines.map((line, i) => (
+          <tr key={i}>
+            <td>{line.description}</td>
+            <td>
+              +${!isYearly ? line.price : line.price * 10}/
+              {!isYearly ? "mo" : "yr"}
+            </td>
+          </tr>
         ))}
       </tbody>
       <tfoot>

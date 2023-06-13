@@ -3,26 +3,24 @@ import { useMemo } from "react";
 export function Tile({ name, icon, title, price, isYearly = false }) {
   const id = useMemo(() => crypto.randomUUID(), []);
   return (
-    <div className="tile">
-      <label htmlFor={id}>
-        <img
-          src={`/assets/images/icon-${icon}.svg`}
-          alt={title}
-          className="tile-icon"
-        />
-        <div>
-          <h3 className="tile-title">{title}</h3>
-          <p className="tile-price">
-            ${!isYearly ? price : price * 10}/{!isYearly ? "mo" : "yr"}
+    <label htmlFor={id} className="tile">
+      <img
+        src={`/assets/images/icon-${icon}.svg`}
+        alt={title}
+        className="tile-icon"
+      />
+      <div>
+        <h3 className="tile-title">{title}</h3>
+        <p className="tile-price">
+          ${!isYearly ? price : price * 10}/{!isYearly ? "mo" : "yr"}
+        </p>
+        {isYearly && (
+          <p className="tile-bonus">
+            <strong>2 months free</strong>
           </p>
-          {isYearly && (
-            <p className="tile-bonus">
-              <strong>2 months free</strong>
-            </p>
-          )}
-        </div>
-      </label>
+        )}
+      </div>
       <input type="radio" id={id} name={name} />
-    </div>
+    </label>
   );
 }

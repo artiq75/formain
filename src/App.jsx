@@ -7,7 +7,7 @@ function App() {
 
   return (
     <>
-      <Aside step={step} />
+      <Aside step={step} setStep={setStep} />
       <Main step={step} setStep={setStep} />
     </>
   );
