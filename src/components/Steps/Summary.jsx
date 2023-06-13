@@ -1,4 +1,4 @@
-import { Invoice } from "../Tools";
+import Invoice from "../Invoice";
 
 const invoiceLines = [
   {
@@ -15,14 +15,14 @@ const invoiceLines = [
   },
 ];
 
-function Summary() {
+function Summary({ isYearly }) {
   return (
-    <section>
+    <section className="summary">
       <div className="summary-header">
         <h1>Finishing up</h1>
         <p>Double-check everything looks OK before confirming.</p>
       </div>
-      <Invoice lines={invoiceLines} />
+      <Invoice lines={invoiceLines} isYearly={isYearly} />
     </section>
   );
 }

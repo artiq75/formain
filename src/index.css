@@ -93,6 +93,10 @@ button.secondary {
   color: var(--white);
 }
 
+button.secondary:hover {
+  opacity: 0.7;
+}
+
 button.outlined {
   background-color: transparent;
   color: var(--cool-gray);
@@ -494,6 +498,77 @@ section p {
 }
 
 .horizontal-checkbox input {
-  height: min-content;
-  width: min-content;
+  height: 15px;
+  width: 15px;
+  background-color: var(--purplish-blue);
+}
+
+.invoice {
+  border-collapse: collapse;
+  border-radius: var(--rounded);
+  width: 100%;
+  overflow: hidden;
+  font-size: 0.9em;
+}
+
+.invoice thead,
+.invoice tbody {
+  background-color: var(--magnolia);
+  position: relative;
+}
+
+.invoice thead::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 1.5em;
+  right: 1.5em;
+  height: 1px;
+  background-color: var(--light-gray);
+}
+
+.invoice thead a {
+  color: var(--cool-gray);
+  font-weight: 400;
+  transition: .3s;
+}
+
+.invoice thead a:hover {
+  color: var(--purplish-blue);
+}
+
+.invoice tbody tr td:first-of-type,
+.invoice tfoot tr td:first-of-type {
+  color: var(--cool-gray);
+}
+
+.invoice th {
+  padding: 1.5em;
+}
+
+.invoice th:last-of-type,
+.invoice td:last-child {
+  text-align: right;
+}
+
+.invoice tbody tr:first-of-type td {
+  padding: 1.5em 1.5em 0 1.5em;
+}
+
+.invoice tbody tr:last-of-type td {
+  padding: 0 1.5em 1.5em 1.5em;
+}
+
+.invoice-total {
+  color: var(--purplish-blue);
+  font-weight: 700;
+  font-size: 1.25em;
+}
+
+.invoice tbody tr:not(:last-of-type) td {
+  margin-bottom: 1em;
+}
+
+.invoice tfoot td {
+  padding: 1em;
 }

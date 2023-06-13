@@ -61,7 +61,7 @@ function Main({ step, setStep }) {
           </div>
         </Step>
         <Step>
-          <Summary />
+          <Summary isYearly={isYearly} />
           <div role="footer" className="footer">
             <div className="footer-inner">
               <Button className="outlined" onClick={handleBack}>

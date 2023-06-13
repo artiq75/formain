@@ -11,21 +11,6 @@ export function TextField({ type = "text", label, name, ...props }) {
   );
 }
 
-export function Invoice({ lines }) {
-  return (
-    <table className="invoice">
-      <tbody>
-        {lines.map((line, i) => (
-          <tr key={i}>
-            <td>{line.description}</td>
-            <td>{line.price}</td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
-  );
-}
-
 export function Switch({ name, ...props }) {
   return (
     <label className="switch" htmlFor={name}>
