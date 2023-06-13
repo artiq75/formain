@@ -1,0 +1,138 @@
+@media (max-width: 801px) {
+  #root {
+    padding: 0 1em;
+  }
+
+  .main {
+    position: relative;
+    max-width: var(--mobile);
+    background-color: var(--white);
+    margin-top: -80px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1.5em;
+    border-radius: var(--rounded);
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 15px 15px -3px,
+      rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+  }
+
+  .aside {
+    position: relative;
+    margin-left: -5.5%;
+    margin-right: -5.5%;
+  }
+
+  .aside .stepper {
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+  }
+
+  .aside-step-text {
+    display: none;
+  }
+
+  .tile label {
+    align-items: center;
+  }
+}
+
+@media (min-width: 800px) {
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1em;
+  }
+
+  #root {
+    padding: 1em;
+    width: 100%;
+    display: grid;
+    gap: 1em;
+    grid-template-columns: 300px 1fr;
+    background-color: var(--white);
+    border-radius: var(--rounded-lg);
+    min-height: 700px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 15px 15px -3px,
+      rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+  }
+
+  .main {
+    padding: 2.5em 3em;
+    position: relative;
+  }
+
+  .footer {
+    position: absolute;
+    bottom: 0;
+    margin-left: 5em;
+    margin-right: 5em;
+  }
+
+  .footer-inner {
+    margin: 0;
+    min-width: 100%;
+  }
+
+  .personal-info-form {
+    gap: 1.25em;
+  }
+
+  .aside {
+    padding: 2em;
+    border-radius: var(--rounded);
+    min-height: 100%;
+    background-image: url("assets/images/bg-sidebar-desktop.svg");
+  }
+
+  .aside .stepper {
+    gap: 2em;
+    flex-direction: column;
+  }
+
+  .aside .step {
+    display: flex;
+    gap: 1em;
+  }
+
+  .aside-step-text {
+    font-size: 0.6em;
+    text-transform: uppercase;
+  }
+
+  .aside-step-text p {
+    font-weight: 500;
+    color: var(--light-gray);
+    margin-bottom: 0.25em;
+  }
+
+  section h1 {
+    font-size: 2em;
+  }
+
+  .personal-info,
+  .plan,
+  .addons,
+  .summary {
+    display: grid;
+    gap: 2.25em;
+  }
+}
+
+@media (min-width: 850px) {
+  .plan form {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+
+  .tile label {
+    flex-direction: column;
+    gap: 3em;
+  }
+}
+
+@media (min-width: 1000px) {
+  .main {
+    padding: 2.5em 6em;
+  }
+}

@@ -1,0 +1,38 @@
+.tile {
+  border: 1px solid var(--light-gray);
+  border-radius: var(--rounded);
+  padding: 1em;
+  min-width: 150px;
+  font-size: 0.9em;
+}
+
+.tile label {
+  margin: 0;
+  display: flex;
+  gap: 1em;
+}
+
+.tile:has(input:checked) {
+  border-color: var(--purplish-blue);
+  background-color: var(--magnolia);
+}
+
+.tile-icon {
+  width: min-content;
+  height: min-content;
+}
+
+.tile-price {
+  color: var(--cool-gray);
+}
+
+.tile input {
+  position: absolute;
+  left: -999999px;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.tile-bonus {
+  color: var(--marine-blue);
+}

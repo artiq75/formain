@@ -22,7 +22,7 @@ function Invoice({ lines, isYearly }) {
         {lines.map((line, i) => (
           <>
             {i >= 1 && (
-              <tr key={i}>
+              <tr>
                 <td>{line.description}</td>
                 <td>
                   +${!isYearly ? line.price : line.price * 10}/

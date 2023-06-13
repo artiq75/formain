@@ -1,0 +1,67 @@
+@font-face {
+  font-family: "Ubuntu";
+  src: url("/assets/fonts/Ubuntu-Bold.ttf") format("truetype");
+  font-weight: 700;
+}
+@font-face {
+  font-family: "Ubuntu";
+  src: url("/assets/fonts/Ubuntu-Medium.ttf") format("truetype");
+  font-weight: 500;
+}
+@font-face {
+  font-family: "Ubuntu";
+  src: url("/assets/fonts/Ubuntu-regular.ttf") format("truetype");
+  font-weight: 400;
+}
+
+:root {
+  --marine-blue: hsl(213, 96%, 18%);
+  --purplish-blue: hsl(243, 100%, 62%);
+  --pastel-blue: hsl(228, 100%, 84%);
+  --light-blue: hsl(206, 94%, 87%);
+  --strawberry-red: hsl(354, 84%, 57%);
+  --cool-gray: hsl(231, 11%, 63%);
+  --light-gray: hsl(229, 24%, 87%);
+  --magnolia: hsl(217, 100%, 97%);
+  --alabaster: hsl(231, 100%, 99%);
+  --white: hsl(0, 0%, 100%);
+  --rounded: 10px;
+  --rounded-sm: 5px;
+  --rounded-lg: 15px;
+  --desktop: 1040px;
+  --mobile: 375px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-family: "Ubuntu", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  background-color: var(--magnolia);
+  color: var(--marine-blue);
+  overflow-x: hidden;
+}
+
+label {
+  display: inline-block;
+  margin-bottom: 0.5em;
+  color: var(--marine-blue);
+}
+
+input {
+  width: 100%;
+  padding: 1em;
+  border: 1px solid var(--light-gray);
+  border-radius: var(--rounded-sm);
+}

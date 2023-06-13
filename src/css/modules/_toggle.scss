@@ -1,0 +1,21 @@
+.toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+  background: var(--magnolia);
+  padding: 0.5em;
+  border-radius: var(--rounded);
+}
+
+.toggle-label {
+  color: var(--marine-blue);
+}
+
+.toggle:not(.active) .toggle-label:first-child {
+  color: var(--cool-gray);
+}
+
+.toggle.active .toggle-label:last-child {
+  color: var(--cool-gray);
+}

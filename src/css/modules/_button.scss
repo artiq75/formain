@@ -1,0 +1,40 @@
+button {
+  padding: 0.75em 1.75em;
+  border: 1px solid transparent;
+  border-radius: var(--rounded-sm);
+  font-family: inherit;
+  font-size: 0.9em;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button.primary {
+  border-color: var(--marine-blue);
+  background-color: var(--marine-blue);
+  color: var(--white);
+}
+
+button.primary:hover {
+  opacity: 0.3s;
+}
+
+button.secondary {
+  border-color: var(--purplish-blue);
+  background-color: var(--purplish-blue);
+  color: var(--white);
+}
+
+button.secondary:hover {
+  opacity: 0.7;
+}
+
+button.outlined {
+  background-color: transparent;
+  color: var(--cool-gray);
+}
+
+button.outlined:hover {
+  border-color: var(--marine-blue);
+  color: var(--marine-blue);
+}

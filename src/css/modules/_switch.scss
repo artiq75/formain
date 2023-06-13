@@ -1,0 +1,38 @@
+.switch {
+  margin: 0;
+  width: 35px;
+  height: 17px;
+  border-radius: var(--rounded-lg);
+  background: var(--cool-gray);
+  position: relative;
+  transition: 0.3s;
+}
+
+.switch::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  translate: 4px -50% 0;
+  height: 11px;
+  width: 11px;
+  border-radius: 50%;
+  background-color: var(--white);
+  transition: 0.3s;
+}
+
+.switch:has(input:checked) {
+  background-color: var(--marine-blue);
+}
+
+.switch:has(input:checked)::before {
+  left: 100%;
+  translate: calc(-100% - 4px) -50% 0;
+}
+
+.switch input {
+  position: fixed;
+  left: -99999px;
+  visibility: hidden;
+  opacity: 0;
+}
