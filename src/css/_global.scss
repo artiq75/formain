@@ -44,6 +44,7 @@
   transition: 0.3s;
 }
 
+.step:hover .aside-step-number,
 .step:not([aria-current="true"]) .aside-step-number {
   background-color: var(--light-blue);
   color: var(--marine-blue);
@@ -124,4 +125,8 @@ section p {
   align-items: center;
   justify-content: space-between;
   width: 100%;
+}
+
+.main .step:first-of-type button {
+  margin-left: auto;
 }

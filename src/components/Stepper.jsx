@@ -3,7 +3,9 @@ import { Children, useCallback } from "react";
 export function Stepper({ step, children, onClick }) {
   const handleClick = useCallback(
     (step) => () => {
-      onClick(step);
+      if (onClick) {
+        onClick(step);
+      }
     },
     []
   );
