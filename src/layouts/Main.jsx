@@ -21,18 +21,16 @@ function Main({ step, setStep }) {
     setStep((step) => step - 1);
   }, [setStep]);
 
+  const handleSubmit = (data) => {
+    console.log(data);
+    handleNext();
+  };
+
   return (
     <main className="main">
       <Stepper step={step}>
         <Step>
-          <PersonalInfo />
-          <div role="footer" className="footer">
-            <div className="footer-inner">
-              <Button className="primary" onClick={handleNext}>
-                Next Step
-              </Button>
-            </div>
-          </div>
+          <PersonalInfo onSubmit={handleSubmit} />
         </Step>
         <Step>
           <Plan isYearly={isYearly} onToggle={handleToggle} />

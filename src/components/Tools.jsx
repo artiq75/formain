@@ -2,11 +2,20 @@ export function Button({ children, ...props }) {
   return <button {...props}>{children}</button>;
 }
 
-export function TextField({ type = "text", label, name, ...props }) {
+export function TextField({ type = "text", label, name, error, ...props }) {
   return (
-    <p>
-      <label htmlFor={name}>{label}</label>
-      <input type={type} id={name} name={name} {...props} />
+    <p className="textfield">
+      <label htmlFor={name}>
+        <span>{label}</span>
+        {error && <span className="textfield-error">{error}</span>}
+      </label>
+      <input
+        type={type}
+        id={name}
+        name={name}
+        {...props}
+        aria-invalid={!!error}
+      />
     </p>
   );
 }
