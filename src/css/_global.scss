@@ -140,7 +140,3 @@ section p {
 .textfield-error {
   color: var(--strawberry-red);
 }
-
-.textfield input[aria-invalid="true"] {
-  border-color: var(--strawberry-red);
-}

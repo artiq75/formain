@@ -24,13 +24,19 @@ export function useFormValidation(ref, schema, onValidated) {
         // Call the callback when the form is validated
         onValidated(form)
       } catch (e) {
-        // Set fields message error
-        e.inner.forEach((err) => {
-          setError((error) => ({
-            ...error,
-            [err.path]: err.message
-          }))
-        })
+        // Set field(s) message error
+        if (!e.inner?.length) {
+          setError({
+            [e.path]: e.message
+          })
+        } else {
+          e.inner.forEach((err) => {
+            setError((error) => ({
+              ...error,
+              [err.path]: err.message
+            }))
+          })
+        }
       }
     },
     [ref.current, schema, onValidated, setError]

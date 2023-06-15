@@ -1,49 +1,53 @@
-import { Stepper, Step } from "../components/Stepper";
-import { Button } from "../components/Tools";
-import PersonalInfo from "../components/Steps/PersonalInfo";
-import Plan from "../components/Steps/Plan";
-import Addons from "../components/Steps/Addons";
-import Summary from "../components/Steps/Summary";
-import { useCallback, useState } from "react";
+import { Stepper, Step } from '../components/Stepper'
+import { Button } from '../components/Tools'
+import PersonalInfo from '../components/Steps/PersonalInfo'
+import Plan from '../components/Steps/Plan'
+import Addons from '../components/Steps/Addons'
+import Summary from '../components/Steps/Summary'
+import { useCallback, useState } from 'react'
 
 function Main({ step, setStep }) {
-  const [isYearly, setIsYearly] = useState(false);
+  const [personalInfo, setPersonalInfo] = useState(null)
+  const [isYearly, setIsYearly] = useState(false)
 
-  const handleToggle = (e) => {
-    setIsYearly(e.target.checked);
-  };
+  const handleToggle = useCallback(
+    (e) => {
+      setIsYearly(e.target.checked)
+    },
+    [setIsYearly]
+  )
 
   const handleNext = useCallback(() => {
-    setStep((step) => step + 1);
-  }, [setStep]);
+    setStep((step) => step + 1)
+  }, [setStep])
 
   const handleBack = useCallback(() => {
-    setStep((step) => step - 1);
-  }, [setStep]);
+    setStep((step) => step - 1)
+  }, [setStep])
 
-  const handleSubmit = (data) => {
-    console.log(data);
-    handleNext();
-  };
+  const handlePersonalInfoSubmit = (data) => {
+    setPersonalInfo(data)
+    handleNext()
+  }
+
+  const handlePlanSubmit = (data) => {
+    console.log(data)
+    handleNext()
+  }
 
   return (
     <main className="main">
       <Stepper step={step}>
         <Step>
-          <PersonalInfo onSubmit={handleSubmit} />
+          <PersonalInfo onSubmit={handlePersonalInfoSubmit} />
         </Step>
         <Step>
-          <Plan isYearly={isYearly} onToggle={handleToggle} />
-          <div role="footer" className="footer">
-            <div className="footer-inner">
-              <Button className="outlined" onClick={handleBack}>
-                Go Back
-              </Button>
-              <Button className="primary" onClick={handleNext}>
-                Next Step
-              </Button>
-            </div>
-          </div>
+          <Plan
+            isYearly={isYearly}
+            onToggle={handleToggle}
+            onBack={handleBack}
+            onSubmit={handlePlanSubmit}
+          />
         </Step>
         <Step>
           <Addons isYearly={isYearly} />
@@ -71,7 +75,7 @@ function Main({ step, setStep }) {
         </Step>
       </Stepper>
     </main>
-  );
+  )
 }
 
-export default Main;
+export default Main
