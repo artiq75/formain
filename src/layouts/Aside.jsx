@@ -1,4 +1,4 @@
-import { Step, Stepper } from "../components/Stepper";
+import { Step, Stepper } from "../components/Tools/Stepper";
 
 const steps = [
   {

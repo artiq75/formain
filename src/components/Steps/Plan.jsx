@@ -1,7 +1,7 @@
 import { useRef } from 'react'
 import { useFormValidation } from '../../hooks'
-import { Tile } from '../Tile'
-import { Toggle, Button } from '../Tools'
+import { Tile } from '../Tools/Tile'
+import { Toggle, Button } from '../Tools/Tools'
 import * as yup from 'yup'
 
 const plans = [

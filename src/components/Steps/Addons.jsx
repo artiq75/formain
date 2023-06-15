@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef } from 'react'
 import { useFormValidation } from '../../hooks'
-import { Button, HorizontalCheckbox } from '../Tools'
+import { Button, HorizontalCheckbox } from '../Tools/Tools'
 import * as yup from 'yup'
 
 const schema = yup.object().shape(

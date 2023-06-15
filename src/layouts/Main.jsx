@@ -1,4 +1,4 @@
-import { Stepper, Step } from '../components/Stepper'
+import { Stepper, Step } from '../components/Tools/Stepper'
 import PersonalInfo from '../components/Steps/PersonalInfo'
 import Plan from '../components/Steps/Plan'
 import Addons from '../components/Steps/Addons'

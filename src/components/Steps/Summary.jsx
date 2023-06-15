@@ -1,5 +1,5 @@
-import Invoice from '../Invoice'
-import { Button } from '../Tools'
+import Invoice from '../Tools/Invoice'
+import { Button } from '../Tools/Tools'
 
 function Summary({ data, isYearly, onBack, onConfirm }) {
   return (
