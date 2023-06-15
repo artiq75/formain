@@ -4,6 +4,27 @@ import { Tile } from '../Tile'
 import { Toggle, Button } from '../Tools'
 import * as yup from 'yup'
 
+const plans = [
+  {
+    id: 1,
+    icon: 'arcade',
+    title: 'Arcade',
+    price: 9
+  },
+  {
+    id: 2,
+    icon: 'advanced',
+    title: 'Advanced',
+    price: 12
+  },
+  {
+    id: 3,
+    icon: 'pro',
+    title: 'Pro',
+    price: 15
+  }
+]
+
 let schema = yup.object().shape({
   plan: yup.string().required('You must choose at least one plan')
 })
@@ -11,7 +32,10 @@ let schema = yup.object().shape({
 function Plan({ isYearly, onToggle, onBack, onSubmit }) {
   const formRef = useRef(null)
 
-  const [error] = useFormValidation(formRef, schema, onSubmit)
+  const [error] = useFormValidation(formRef, schema, (data) => {
+    const { title, price } = plans.find((plan) => plan.id == data.plan)
+    onSubmit({ plan: { title, price } })
+  })
 
   return (
     <section className="plan">
@@ -21,29 +45,19 @@ function Plan({ isYearly, onToggle, onBack, onSubmit }) {
           You have the option of monthly or yearly billing.
         </p>
       </div>
+      {error?.plan && <p className="error">{error.plan}</p>}
       <form ref={formRef}>
-        {error?.plan && <p className="error">{error.plan}</p>}
-        <Tile
-          name="plan"
-          icon="arcade"
-          title="Arcade"
-          price={9}
-          isYearly={isYearly}
-        />
-        <Tile
-          name="plan"
-          icon="advanced"
-          title="Advanced"
-          price={12}
-          isYearly={isYearly}
-        />
-        <Tile
-          name="plan"
-          icon="pro"
-          title="Pro"
-          price={15}
-          isYearly={isYearly}
-        />
+        {plans.map((plan, i) => (
+          <Tile
+            key={i}
+            name="plan"
+            value={plan.id}
+            icon={plan.icon}
+            title={plan.title}
+            price={plan.price}
+            isYearly={isYearly}
+          />
+        ))}
         <div role="footer" className="footer">
           <div className="footer-inner">
             <Button className="outlined" type="button" onClick={onBack}>

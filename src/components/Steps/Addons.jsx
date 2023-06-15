@@ -30,10 +30,37 @@ const schema = yup.object().shape(
   ]
 )
 
+const addons = [
+  {
+    name: 'onlineService',
+    title: 'Online service',
+    description: 'Access to multiplayer games',
+    price: 1
+  },
+  {
+    name: 'largerStorage',
+    title: 'Larger storage',
+    description: 'Extra 1TB of cloud save',
+    price: 2
+  },
+  {
+    name: 'customizableProfile',
+    title: 'Customizable profile',
+    description: 'Custom theme on your profile',
+    price: 2
+  }
+]
+
 function Addons({ isYearly, onBack, onSubmit }) {
   const formRef = useRef(null)
 
-  const [errors] = useFormValidation(formRef, schema, onSubmit)
+  const [errors] = useFormValidation(formRef, schema, (form) => {
+    onSubmit({
+      addons: addons
+        .filter((addon) => Object.values(form).includes(addon.name))
+        .map(({ title, price }) => ({ title, price }))
+    })
+  })
 
   const error = useMemo(() => {
     return Object.values(errors)[0]
@@ -47,27 +74,17 @@ function Addons({ isYearly, onBack, onSubmit }) {
       </div>
       <form className="addons-list" ref={formRef}>
         {error && <p className="error">{error}</p>}
-        <HorizontalCheckbox
-          name="onlineService"
-          title="Online service"
-          description="Access to multiplayer games"
-          price={1}
-          isYearly={isYearly}
-        />
-        <HorizontalCheckbox
-          name="largerStorage"
-          title="Larger storage"
-          description="Extra 1TB of cloud save"
-          price={2}
-          isYearly={isYearly}
-        />
-        <HorizontalCheckbox
-          name="customizableProfile"
-          title="Customizable profile"
-          description="Custom theme on your profile"
-          price={2}
-          isYearly={isYearly}
-        />
+        {addons.map((addon, i) => (
+          <HorizontalCheckbox
+            key={i}
+            name={addon.name}
+            value={addon.name}
+            title={addon.title}
+            description={addon.description}
+            price={addon.price}
+            isYearly={isYearly}
+          />
+        ))}
         <div role="footer" className="footer">
           <div className="footer-inner">
             <Button className="outlined" type="button" onClick={onBack}>

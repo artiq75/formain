@@ -1,8 +1,10 @@
+import { createPortal } from 'react-dom'
+
 export function Button({ children, ...props }) {
-  return <button {...props}>{children}</button>;
+  return <button {...props}>{children}</button>
 }
 
-export function TextField({ type = "text", label, name, error, ...props }) {
+export function TextField({ type = 'text', label, name, error, ...props }) {
   return (
     <p className="textfield">
       <label htmlFor={name}>
@@ -17,7 +19,7 @@ export function TextField({ type = "text", label, name, error, ...props }) {
         aria-invalid={!!error}
       />
     </p>
-  );
+  )
 }
 
 export function Switch({ name, ...props }) {
@@ -25,36 +27,37 @@ export function Switch({ name, ...props }) {
     <label className="switch" htmlFor={name}>
       <input type="checkbox" id={name} name={name} {...props} />
     </label>
-  );
+  )
 }
 
 export function Toggle({ firstLabel, secondLabel, isToggle, onToggle }) {
   return (
-    <div className={`toggle${isToggle ? " active" : ""}`}>
+    <div className={`toggle${isToggle ? ' active' : ''}`}>
       <span className="toggle-label">{firstLabel}</span>
       <Switch onChange={onToggle} />
       <span className="toggle-label">{secondLabel}</span>
     </div>
-  );
+  )
 }
 
 export function HorizontalCheckbox({
   name,
+  value,
   title,
   description,
   price,
-  isYearly,
+  isYearly
 }) {
   return (
     <label htmlFor={name} className="horizontal-checkbox">
-      <input type="checkbox" id={name} name={name} />
+      <input type="checkbox" id={name} name={name} defaultValue={value} />
       <div>
         <h3 className="horizontal-checkbox-title">{title}</h3>
         <p className="horizontal-checkbox-description">{description}</p>
       </div>
       <p className="horizontal-checkbox-price">
-        +${!isYearly ? price : price * 10}/{!isYearly ? "mo" : "yr"}
+        +${!isYearly ? price : price * 10}/{!isYearly ? 'mo' : 'yr'}
       </p>
     </label>
-  );
+  )
 }

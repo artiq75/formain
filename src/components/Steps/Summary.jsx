@@ -1,30 +1,28 @@
-import Invoice from "../Invoice";
+import Invoice from '../Invoice'
+import { Button } from '../Tools'
 
-const invoiceLines = [
-  {
-    description: "Arcade",
-    price: 9,
-  },
-  {
-    description: "Online service",
-    price: 1,
-  },
-  {
-    description: "Larger storage",
-    price: 2,
-  },
-];
-
-function Summary({ isYearly }) {
+function Summary({ data, isYearly, onBack, onConfirm }) {
   return (
     <section className="summary">
       <div className="summary-header">
         <h1>Finishing up</h1>
         <p>Double-check everything looks OK before confirming.</p>
       </div>
-      <Invoice lines={invoiceLines} isYearly={isYearly} />
+      {data.plan && data.addons.length && (
+        <Invoice data={data} isYearly={isYearly} />
+      )}
+      <div role="footer" className="footer">
+        <div className="footer-inner">
+          <Button className="outlined" onClick={onBack}>
+            Go Back
+          </Button>
+          <Button className="secondary" onClick={onConfirm}>
+            Confirm
+          </Button>
+        </div>
+      </div>
     </section>
-  );
+  )
 }
 
-export default Summary;
+export default Summary

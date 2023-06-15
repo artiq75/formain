@@ -14,7 +14,9 @@ let schema = yup.object().shape({
 function PersonalInfo({ onSubmit }) {
   const formRef = useRef(null)
 
-  const [error] = useFormValidation(formRef, schema, onSubmit)
+  const [error] = useFormValidation(formRef, schema, (personalInfo) =>
+    onSubmit({ personalInfo })
+  )
 
   return (
     <section className="personal-info">

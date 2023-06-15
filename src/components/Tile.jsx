@@ -1,7 +1,7 @@
-import { useMemo } from "react";
+import { useMemo } from 'react'
 
-export function Tile({ name, icon, title, price, isYearly = false }) {
-  const id = useMemo(() => crypto.randomUUID(), []);
+export function Tile({ name, value, icon, title, price, isYearly = false }) {
+  const id = useMemo(() => crypto.randomUUID(), [])
   return (
     <label htmlFor={id} className="tile">
       <img
@@ -12,7 +12,7 @@ export function Tile({ name, icon, title, price, isYearly = false }) {
       <div>
         <h3 className="tile-title">{title}</h3>
         <p className="tile-price">
-          ${!isYearly ? price : price * 10}/{!isYearly ? "mo" : "yr"}
+          ${!isYearly ? price : price * 10}/{!isYearly ? 'mo' : 'yr'}
         </p>
         {isYearly && (
           <p className="tile-bonus">
@@ -20,7 +20,7 @@ export function Tile({ name, icon, title, price, isYearly = false }) {
           </p>
         )}
       </div>
-      <input type="radio" id={id} name={name} />
+      <input type="radio" id={id} name={name} defaultValue={value} />
     </label>
-  );
+  )
 }

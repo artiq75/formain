@@ -13,16 +13,16 @@ export function useFormValidation(formRef, schema, onValidated) {
   const handleSubmit = useCallback(
     (e) => {
       e.preventDefault()
-      const formData = new FormData(e.target)
+      const formData = {
+        ...Object.fromEntries(new FormData(e.target).entries())
+      }
       // Cleanup up old errors
       setError({})
       try {
-        // Recover all fields
-        const form = { ...Object.fromEntries(formData.entries()) }
         // Validate all fields
-        schema.validateSync(form, { abortEarly: false })
+        schema.validateSync(formData, { abortEarly: false })
         // Call the callback when the form is validated
-        onValidated(form)
+        onValidated(formData)
       } catch (e) {
         // Set field(s) message error
         if (!e.inner?.length) {
@@ -30,10 +30,10 @@ export function useFormValidation(formRef, schema, onValidated) {
             [e.path]: e.message
           })
         } else {
-          e.inner.forEach((err) => {
-            setError((error) => ({
-              ...error,
-              [err.path]: err.message
+          e.inner.forEach((e) => {
+            setError((errors) => ({
+              ...errors,
+              [e.path]: e.message
             }))
           })
         }

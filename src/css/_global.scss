@@ -2,8 +2,8 @@
   transition: 0.3s;
 }
 
-.main .step[aria-current="true"],
-.main .step[aria-current="true"] .footer {
+.main .step[aria-current='true'],
+.main .step[aria-current='true'] .footer {
   position: fixed;
   left: -99999px;
   visibility: inherit;
@@ -24,7 +24,7 @@
 .aside {
   padding: 2em 1em;
   min-height: 175px;
-  background-image: url("assets/images/bg-sidebar-mobile.svg");
+  background-image: url('assets/images/bg-sidebar-mobile.svg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
@@ -45,7 +45,7 @@
 }
 
 .step:hover .aside-step-number,
-.step:not([aria-current="true"]) .aside-step-number {
+.step:not([aria-current='true']) .aside-step-number {
   background-color: var(--light-blue);
   color: var(--marine-blue);
 }
@@ -139,4 +139,22 @@ section p {
 
 .textfield-error {
   color: var(--strawberry-red);
+}
+
+.thanks {
+  width: 100%;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.thanks-icon {
+  margin-bottom: 2em;
+}
+
+.thanks-title {
+  margin-bottom: 0.5em;
 }

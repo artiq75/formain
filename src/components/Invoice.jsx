@@ -1,49 +1,47 @@
-import { useMemo } from "react";
+import { useMemo } from 'react'
 
-function Invoice({ lines, isYearly }) {
+function Invoice({ data, isYearly }) {
   const total = useMemo(() => {
-    return lines.reduce((acc, line) => acc + line.price, 0);
-  }, [lines]);
-
-  const filterdLines = useMemo(
-    () => lines.filter((line, index) => index >= 1),
-    [lines]
-  );
+    return [data.plan, ...data.addons].reduce(
+      (acc, line) => acc + line.price,
+      0
+    )
+  }, [data])
 
   return (
     <table className="invoice">
       <thead>
         <tr>
           <th>
-            {lines[0].description} (Monthly) <br /> <a href="">change</a>
+            {data.plan.title} (Monthly) <br /> <a href="">change</a>
           </th>
           <th>
-            ${!isYearly ? lines[0].price : lines[0].price * 10}/
-            {!isYearly ? "mo" : "yr"}
+            ${!isYearly ? data.plan.price : data.plan.price * 10}/
+            {!isYearly ? 'mo' : 'yr'}
           </th>
         </tr>
       </thead>
       <tbody>
-        {filterdLines.map((line, i) => (
+        {data.addons.map((addon, i) => (
           <tr key={i}>
-            <td>{line.description}</td>
+            <td>{addon.title}</td>
             <td>
-              +${!isYearly ? line.price : line.price * 10}/
-              {!isYearly ? "mo" : "yr"}
+              +${!isYearly ? addon.price : addon.price * 10}/
+              {!isYearly ? 'mo' : 'yr'}
             </td>
           </tr>
         ))}
       </tbody>
       <tfoot>
         <tr>
-          <td>Total (per {!isYearly ? "month" : "year"})</td>
+          <td>Total (per {!isYearly ? 'month' : 'year'})</td>
           <td className="invoice-total">
-            +${!isYearly ? total : total * 10}/{!isYearly ? "mo" : "yr"}
+            +${!isYearly ? total : total * 10}/{!isYearly ? 'mo' : 'yr'}
           </td>
         </tr>
       </tfoot>
     </table>
-  );
+  )
 }
 
-export default Invoice;
+export default Invoice
