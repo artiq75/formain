@@ -3,11 +3,11 @@ import { useCallback, useEffect, useState } from 'react'
 /**
  * Hooks allowing you validate react forms with Yup library
  *
- * @param {React.RefObject<HTMLFormElement>} ref React form ref
+ * @param {React.RefObject<HTMLFormElement>} formRef React form ref
  * @param {object} schema Yup schema object (with default values very important)
  * @returns {Array<object>} Return an object of errors
  */
-export function useFormValidation(ref, schema, onValidated) {
+export function useFormValidation(formRef, schema, onValidated) {
   const [error, setError] = useState({})
 
   const handleSubmit = useCallback(
@@ -39,12 +39,12 @@ export function useFormValidation(ref, schema, onValidated) {
         }
       }
     },
-    [ref.current, schema, onValidated, setError]
+    [formRef.current, schema, onValidated, setError]
   )
 
   useEffect(() => {
-    ref.current.addEventListener('submit', handleSubmit)
-    return () => ref.current.removeEventListener('submit', handleSubmit)
+    formRef.current.addEventListener('submit', handleSubmit)
+    return () => formRef.current.removeEventListener('submit', handleSubmit)
   }, [handleSubmit])
 
   return [error]

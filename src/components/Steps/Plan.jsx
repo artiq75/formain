@@ -21,8 +21,8 @@ function Plan({ isYearly, onToggle, onBack, onSubmit }) {
           You have the option of monthly or yearly billing.
         </p>
       </div>
-      {error?.plan && <p className="error">{error.plan}</p>}
       <form ref={formRef}>
+        {error?.plan && <p className="error">{error.plan}</p>}
         <Tile
           name="plan"
           icon="arcade"

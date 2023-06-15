@@ -50,17 +50,11 @@ function Main({ step, setStep }) {
           />
         </Step>
         <Step>
-          <Addons isYearly={isYearly} />
-          <div role="footer" className="footer">
-            <div className="footer-inner">
-              <Button className="outlined" onClick={handleBack}>
-                Go Back
-              </Button>
-              <Button className="primary" onClick={handleNext}>
-                Next Step
-              </Button>
-            </div>
-          </div>
+          <Addons
+            isYearly={isYearly}
+            onBack={handleBack}
+            onSubmit={handlePlanSubmit}
+          />
         </Step>
         <Step>
           <Summary isYearly={isYearly} />
