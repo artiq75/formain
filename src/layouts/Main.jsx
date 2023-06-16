@@ -16,8 +16,8 @@ function Main({ step, setStep, setLastValidatedStep }) {
   })
 
   const handleToggle = useCallback(
-    (e) => {
-      setIsYearly(e.target.checked)
+    (isYearly) => {
+      setIsYearly(isYearly)
     },
     [setIsYearly]
   )

@@ -43,8 +43,14 @@ export function useFormValidation(formRef, schema, onValidated) {
   )
 
   useEffect(() => {
-    formRef.current.addEventListener('submit', handleSubmit)
-    return () => formRef.current.removeEventListener('submit', handleSubmit)
+    if (formRef.current instanceof HTMLFormElement) {
+      formRef.current.addEventListener('submit', handleSubmit)
+    }
+    return () => {
+      if (formRef.current instanceof HTMLFormElement) {
+        formRef.current.removeEventListener('submit', handleSubmit)
+      }
+    }
   }, [handleSubmit])
 
   return [error]

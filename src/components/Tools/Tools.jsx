@@ -1,4 +1,4 @@
-import { createPortal } from 'react-dom'
+import { forwardRef, useRef } from 'react'
 
 export function Button({ children, ...props }) {
   return <button {...props}>{children}</button>
@@ -31,11 +31,18 @@ export function Switch({ name, ...props }) {
 }
 
 export function Toggle({ firstLabel, secondLabel, isToggle, onToggle }) {
+  const handleToggle = (e) => {
+    onToggle(e.target.checked)
+  }
   return (
     <div className={`toggle${isToggle ? ' active' : ''}`}>
-      <span className="toggle-label">{firstLabel}</span>
-      <Switch onChange={onToggle} />
-      <span className="toggle-label">{secondLabel}</span>
+      <span className="toggle-label" onClick={() => onToggle(false)}>
+        {firstLabel}
+      </span>
+      <Switch checked={isToggle} onChange={handleToggle} />
+      <span className="toggle-label" onClick={() => onToggle(true)}>
+        {secondLabel}
+      </span>
     </div>
   )
 }

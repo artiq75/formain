@@ -6,7 +6,12 @@
   align-items: center;
   gap: 2em;
   font-size: 0.8em;
-  cursor: pointer;
+
+  &:hover {
+    outline: none;
+    border-color: var(--marine-blue);
+    cursor: pointer;
+  }
 }
 
 .horizontal-checkbox:has(input:checked) {

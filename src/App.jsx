@@ -9,7 +9,7 @@ function App() {
   return (
     <>
       <Aside
-        step={step}
+        step={step} 
         setStep={setStep}
         lastValidatedStep={lastValidatedStep}
       />

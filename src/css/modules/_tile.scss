@@ -7,7 +7,12 @@
   margin: 0;
   display: flex;
   gap: 1em;
-  cursor: pointer;
+
+  &:hover {
+    outline: none;
+    border-color: var(--marine-blue);
+    cursor: pointer;
+  }
 }
 
 .tile:has(input:checked) {
