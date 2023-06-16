@@ -1,4 +1,4 @@
-@media (max-width: 801px) {
+@media (max-width: 799px) {
   #root {
     padding: 0 1em;
   }
@@ -131,7 +131,7 @@
 
   .tile {
     flex-direction: column;
-    gap: 3em;
+    gap: 2.5vmax;
   }
 }
 
