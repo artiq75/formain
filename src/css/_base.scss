@@ -69,6 +69,11 @@ input {
   &[aria-invalid='true'] {
     border-color: var(--strawberry-red);
   }
+
+  &:focus {
+    outline: none;
+    border-color: var(--marine-blue);
+  }
 }
 
 .error {

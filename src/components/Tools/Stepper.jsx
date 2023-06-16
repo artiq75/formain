@@ -1,14 +1,11 @@
-import { Children, useCallback } from "react";
+import { Children, useCallback } from 'react'
 
 export function Stepper({ step, children, onClick }) {
-  const handleClick = useCallback(
-    (step) => () => {
-      if (onClick) {
-        onClick(step);
-      }
-    },
-    []
-  );
+  const handleClick = (step) => {
+    if (onClick) {
+      onClick(step)
+    }
+  }
 
   return (
     <ul className="stepper" role="stepper">
@@ -17,15 +14,15 @@ export function Stepper({ step, children, onClick }) {
           role="step"
           className="step"
           aria-current={i + 1 !== step}
-          onClick={handleClick(i + 1)}
+          onClick={() => handleClick(i + 1)}
         >
           {child}
         </li>
       ))}
     </ul>
-  );
+  )
 }
 
 export function Step({ children }) {
-  return <>{children}</>;
+  return <>{children}</>
 }

@@ -6,7 +6,7 @@ import Summary from '../components/Steps/Summary'
 import Thanks from '../components/Steps/Thanks'
 import { useCallback, useState } from 'react'
 
-function Main({ step, setStep }) {
+function Main({ step, setStep, setLastValidatedStep }) {
   const [isYearly, setIsYearly] = useState(false)
   const [isConfirm, setIsConfirm] = useState(false)
   const [data, setData] = useState({
@@ -31,16 +31,20 @@ function Main({ step, setStep }) {
 
   const handleNext = useCallback(() => {
     setStep((step) => step + 1)
-  }, [setStep])
+  }, [step, setStep])
 
   const handleBack = useCallback(() => {
     setStep((step) => step - 1)
   }, [setStep])
 
-  const handleSubmit = (newData) => {
-    setData((data) => ({ ...data, ...newData }))
-    handleNext()
-  }
+  const handleSubmit = useCallback(
+    (newData) => {
+      setData((data) => ({ ...data, ...newData }))
+      setLastValidatedStep(step)
+      handleNext()
+    },
+    [setData, handleNext, setLastValidatedStep, step]
+  )
 
   return (
     <main className="main">
